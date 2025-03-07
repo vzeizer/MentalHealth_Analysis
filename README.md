@@ -4,10 +4,10 @@
 
 
 
-About this Dataset:
+## About this Dataset:
 This comprehensive dataset is a meticulously curated collection of mental health statuses tagged from various statements. The dataset amalgamates raw data from multiple sources, cleaned and compiled to create a robust resource for developing chatbots and performing sentiment analysis.
 
-Data Source:
+## Data Source:
 The dataset integrates information from the following Kaggle datasets:
 
 - 3k Conversations Dataset for Chatbot
@@ -20,7 +20,7 @@ The dataset integrates information from the following Kaggle datasets:
 - Suicidal Mental Health Dataset
 - Suicidal Tweet Detection Dataset
 
-Data Overview:
+## Data Overview:
 The dataset consists of statements tagged with one of the following seven mental health statuses:
 
 - Normal
@@ -31,7 +31,7 @@ The dataset consists of statements tagged with one of the following seven mental
 - Bi-Polar
 - Personality Disorder
 
-Data Collection:
+## Data Collection:
 The data is sourced from diverse platforms including social media posts, Reddit posts, Twitter posts, and more. Each entry is tagged with a specific mental health status, making it an invaluable asset for:
 
 Developing intelligent mental health chatbots.
@@ -48,7 +48,7 @@ Usage:
 2. Sentiment analysis to gauge mental health trends.
 3. Academic research on mental health patterns.
 
-Acknowledgments:
+## Acknowledgments:
 This dataset was created by aggregating and cleaning data from various publicly available datasets on Kaggle. Special thanks to the original dataset creators for their contributions.
 
 ## MIT License
