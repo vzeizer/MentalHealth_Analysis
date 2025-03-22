@@ -120,35 +120,47 @@ The following figure shows each mental health status discriminated by the kind o
 
 ### Length of the sentence by Mental Health Status
 
-The following figure shows the length of the statement whether the patient has a nmental issue or not, discriminated by the kind of sentiment. One can notice that "normal" patients
+The following figure shows the length of the statement whether the patient has a nmental issue or not, discriminated by the kind of sentiment. One can notice that "normal" patients. However, it is noteworthy that ill patients (class 1) that lie in the neutral sentiment category (orange color) also typically write much shorter sentences.
 
 ![logo](images/14_lengthstatement_illornotill.png)
 
 ### Total number of sentences by sentiment category
 
+In the following figure, one can see the total number of sentences by sentiment by category (negative, neutral, positive), from which it is evident that patients without any mental illness (class 0) typically write much shorter texts than patients that are experiencing a mental issue.
+
 ![logo](images/15_totalsentences_sentimentcategory.png)
 
 ### Total number of words by sentiment category
+
+
+In the following figure, it is shown the total number of words categorized by sentiment, from which one can notice that mental ill patients typically have also the largest number of words in a sentence, clearly being outliers. 
+
 
 ![logo](images/16_totalwords_sentimentcategory.png)
 
 ### Total number of unique words by sentiment category
 
+In the next figure, it is shown the total number of unique words categorized by sentiment, from which one can notice the mental ill patients (class 1) that have either negative or positive sentiments tend to have a much larger number of unique words used in the sentences.
 
 
 ![logo](images/17_totaluniquewords_sentimentcategory.png)
 
 ### Confusion Matrix: Count Vectorizer model 2
 
+The following confusion matrix shows the modeling results for the second approach using a **Count Vectorizer Model**.
+
 ![logo](images/18_confusionmatrix_model2.png)
 
 ### Classification Report: Count Vectorizer model 2
+
+Now, showing the results of the second modeling approach, but now displaying in the next figure the classification report, one can notice that normal patients are well diagnosed in this approach, as well as the following mental ilnesses: **Bipolar, Anxiety, and Depression**.
 
 ![logo](images/19_classificationreport_model2.png)
 
 
 
 ## Acknowledgments:
+
 This dataset was created by aggregating and cleaning data from various publicly available datasets on Kaggle. Special thanks to the original dataset creators for their contributions.
 
 ## MIT License
