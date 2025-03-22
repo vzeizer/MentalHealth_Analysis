@@ -37,6 +37,7 @@ Features:
 unique_id: A unique identifier for each entry.
 Statement: The textual data or post.
 Mental Health Status: The tagged mental health status of the statement.
+
 Usage:
 **This dataset is ideal for training machine learning models aimed at understanding and predicting mental health conditions based on textual data**. It can be used in various applications such as:
 
@@ -62,7 +63,7 @@ From the figure below it can be noticed that suicidal, personality disorder, and
 
 ### Total number of sentences by status
 
-Here, the number of sentences is studied by mental health conditions and the suicidal status seems to have the most weird behavior by having an outlier with more than 1200 sentences.
+Here, the number of sentences is studied by mental health conditions, and the suicidal status seems to have the most weird behavior by having an outlier with more than 1200 sentences. **maybe, the high volume of sentences/phrases/unique words in these ilnesses are related to a more desperate mental condition, which could likely result in higher rates of hospitalization or suicidal attempts**.
 
 ![logo](images/4_number_sentences_status.png)
 
@@ -80,20 +81,20 @@ The following figure shows a histogram of the length of the statements from each
 
 ### Histogram of the length of statements truncated in 50
 
-The following histogram is a simplification of the previous, where the sentences have been truncated up to just 50. This value of 50 was found empirically by testing with values ranging from 20 up to 300, and 50 was found to be present a good trade-off between performance and computing time.
+The following histogram is a simplification of the previous, **where the sentences have been truncated up to just 50**. This value of 50 was found empirically by testing with values ranging from 20 up to 300, and 50 was found to be present a good trade-off between performance and computing time.
 
 
 ![logo](images/7_length_statements_truncated.png)
 
 ### Confusion Matrix: Count Vectorizer model 1
 
-In order to perform **Machine Learning modeling**, the data was split into training and testing datasets, and the MinMaxScaler was fitted and applied in the training set, as well this fitted scaler was applied in the testing set. For modeling, the simple yet robust **Logistic Regression** algorithm was used after the **Count Vectorizer** was applied. The results for the confusion matrix for all the classes (mental health entities) are displayed in the figure below.
+In order to perform **Machine Learning modeling**, the data was split into training and testing datasets, and the **MinMaxScaler** was fitted and applied in the training set, as well this fitted scaler was applied in the testing set. For modeling, the simple yet robust **Logistic Regression** algorithm was used after the **Count Vectorizer** was applied. The results for the confusion matrix for all the classes (mental health entities) are displayed in the figure below.
 
 ![logo](images/8_confusionmatrix_1.png)
 
 ### Classification Report: Count Vectorizer model 1
 
-The figure below shows the classification report for all the classes for the algorithm applied in the previous part. By regarding precision, recall, and f1-score metrics, it is noticeable that the normal, anxiety, bipolar, and depression have a good performance, while the other classes are not being so well modeled. This can be explained by regarding the class imbalance presented in the dataset.
+The figure below shows the classification report for all the classes for the algorithm applied in the previous part. By regarding precision, recall, and f1-score metrics, **it is noticeable that the normal, anxiety, bipolar, and depression have a good performance in the testing set**, while the other classes are not being so well modeled. This can be explained by regarding the class imbalance presented in this dataset.
 
 ![logo](images/9_classificationreport_1.png)
 
@@ -112,7 +113,7 @@ In the figure below one can see the top 20 words that have the largest contribut
 
 ### Sentiment analysis by illness
 
-Now, it is going to be performed a sentiment analysis in the statements for the patients. The sentiments can be grouped into positive, neutral, or negative, depending on the results of the algorithmic classification. The figure below shows this for the current dataset, from which one can notice that a normal health status tends to have less negative sentiments
+Now, it is going to be performed a sentiment analysis in the statements for the patients. The sentiments can be grouped into positive, neutral, or negative, depending on the results of the algorithmic classification by using **[Text Blob](https://textblob.readthedocs.io/en/dev/quickstart.html)** approach. The figure below shows this for the current dataset, from which one can notice that a normal health status tends to have less negative sentiments
 
 The following figure shows each mental health status discriminated by the kind of sentiment
 
@@ -157,7 +158,74 @@ Now, showing the results of the second modeling approach, but now displaying in 
 
 ![logo](images/19_classificationreport_model2.png)
 
+### Key Findings from Analysis:
 
+1. Mental Health Status Distribution:
+Depression, suicidal ideation, and anxiety are the most frequently detected mental health issues.
+Suicidal, personality disorder, and bipolar statements often have more extreme text lengths and sentence counts.
+2. Text Length Analysis:
+Suicidal, personality disorder, and bipolar statements exhibit more extreme text lengths.
+Normal statements tend to have more consistent text lengths.
+3. Sentence and Word Count:
+Suicidal statements show an outlier with a very high sentence count.
+Bipolar, suicidal, and personality disorder statements have the most extreme outliers for unique word count.
+4. Text Preprocessing:
+Statement lengths vary significantly, necessitating text simplification (truncation to 50 words was found to be a good trade off).
+5. Machine Learning Modeling (Logistic Regression with Count Vectorizer):
+Two models were created.
+Normal, anxiety, bipolar, and depression statuses were predicted with good performance.
+Class imbalance affected the modeling of the other mental health statuses.
+The top 20 words contributing to predictions were identified, both overall and for each mental health status.
+6. Sentiment Analysis (TextBlob):
+Normal statements tend to have fewer negative sentiments.
+Mental ill patients tend to write longer sentences, and use a greater number of total words, and unique words.
+- Model 2 improvements:
+Model 2 also showed good performance in predicting normal, bipolar, anxiety, and depression.
+
+## Real-World Usage
+
+The findings from this data analysis can be applied in several real-world scenarios to assist patients with mental health issues:
+
+1. **Early Detection and Intervention**:
+
+- *Social Media Monitoring*:
+By deploying sentiment analysis and text classification models (like the ones developed in the analysis) on social media platforms, early signs of distress (e.g., suicidal ideation, severe anxiety) can be detected.
+This allows for timely intervention by mental health professionals or support services.
+**The identified top 20 words associated with specific mental health conditions can be used as keywords for monitoring**.
+- *Chatbot Integration*:
+Mental health chatbots can be trained using this dataset to identify users expressing symptoms of depression, anxiety, or suicidal thoughts.
+These chatbots can provide initial support, offer resources, and guide users towards professional help.
+The ability to analyze text length and complexity can help assess the severity of a user's distress.
+- *Healthcare System Integration*:
+Hospitals and clinics can use these models to analyze patient notes and online interactions, flagging individuals at risk for mental health crises.
+This can help prioritize patients for mental health assessments and interventions.
+
+
+2. **Personalized Support and Treatment**:
+
+- *Sentiment Analysis for Therapy*:
+Therapists can use sentiment analysis tools to track changes in a patient's emotional state over time, providing valuable insights into the effectiveness of treatment.
+Analyzing the language used by patients can help therapists understand their specific concerns and tailor therapy sessions accordingly.
+- *Personalized Content Delivery*:
+Based on the identified mental health status and sentiment, apps and online platforms can deliver personalized content, such as coping strategies, mindfulness exercises, or support group recommendations.
+The model's identification of key words related to each mental illness can be utilized to provide users with information that is most relevant to their mental health condition.
+- *Risk Assessment*:
+The finding that certain mental illnesses correlate with very long text outputs, and very high amounts of unique words, can be used as a flag for high risk patients.
+
+3. **Research and Advocacy**:
+
+- *Mental Health Trend Analysis*:
+Researchers can use this dataset to study the prevalence and trends of mental health issues in different populations.
+This can inform public health campaigns and policies aimed at improving mental health awareness and access to care.
+- *Reducing Stigma*:
+**By analyzing the language used in online discussions about mental health, researchers can identify and address stigmatizing language and promote more empathetic and supportive communication.**
+- *Improving Diagnostic Tools*:
+The models developed in this analysis can contribute to the development of more accurate and efficient diagnostic tools for mental health conditions.
+In essence, these findings enable the development of tools and systems that can:
+
+- Provide early detection and intervention for mental health issues.
+- Offer personalized support and treatment to patients.
+Advance research and advocacy efforts to improve mental health care.
 
 ## Acknowledgments:
 
